@@ -4,6 +4,9 @@ import './globals.css';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import { Toaster } from '@/components/ui/toaster';
+import { auth } from '@/auth';
+
+import { SessionProvider } from 'next-auth/react';
 
 const ibmPlexSans = localFont({
   src: [
@@ -32,15 +35,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const session = await auth()
 
   return (
     <html lang="en">
-      <body
-        className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
-      >
-        {children}
-        <Toaster />
-      </body>
+      <SessionProvider session={session}>
+        <body
+          className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </SessionProvider>
     </html>
   );
 }

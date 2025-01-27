@@ -94,7 +94,7 @@ export default function AuthForm<T extends FieldValues>({
                     {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
                   </FormLabel>
                   <FormControl>
-                    {field.name === 'universityId' ? (
+                    {field.name === 'universityCard' ? (
                       <ImageUpload onFileChange={field.onChange} />
                     ) : (
                       <Input
