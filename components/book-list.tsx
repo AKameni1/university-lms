@@ -8,7 +8,6 @@ type BookListPropsType = {
 };
 
 export default function BookList({
-  title,
   books,
   containerClassName,
 }: Readonly<BookListPropsType>) {

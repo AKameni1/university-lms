@@ -42,7 +42,7 @@ export const signInWithCredentials = async (
   } catch (error) {
     return {
       success: false,
-      message: 'Error signing in',
+      message: `Error signing in. ${error}`,
     };
   }
 };
@@ -91,7 +91,7 @@ export const signUp = async (params: AuthCredentials) => {
   } catch (error) {
     return {
       success: false,
-      message: 'Error creating user',
+      message: `Error creating user. ${error}`,
     };
   }
 };
