@@ -18,12 +18,13 @@ export const bookSchema = z.object({
   description: z.string().trim().min(10, 'Too short').max(1000, 'Too long'),
   author: z.string().trim().min(2, 'Too short').max(200, 'Too long'),
   genre: z.string().trim().min(2, 'Too short').max(50, 'Too long'),
-  rating: z.number().min(1, 'Too short').max(5, 'Too long'),
+  rating: z.coerce.number().min(1, 'Too short').max(5, 'Too long'),
   totalCopies: z.coerce.number().int().positive().lte(10000, 'Too many copies'),
-  coverUrl: z.string().nonempty().url('Invalid URL'),
+  coverUrl: z.string().nonempty(),
   coverColor: z
     .string()
     .trim()
     .regex(/^#[0-9A-F]{6}$/i, 'Invalid color'),
-  videoUrl: z.string().nonempty().url('Invalid URL'),
+  videoUrl: z.string().nonempty(),
+  summary: z.string().trim().min(10, 'Too short'),
 });
