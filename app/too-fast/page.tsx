@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Page() {
   return (
-    <main className='root-container flex min-h-screen flex-col items-center justify-center'>
+    <main className='root-container flex min-h-dvh flex-col items-center justify-center'>
       <h1 className='font-bebas-neue text-5xl font-bold text-light-100'>
         Whoa, slow down! You&apos;re doing that too fast. Please wait a moment before trying again.
       </h1>
