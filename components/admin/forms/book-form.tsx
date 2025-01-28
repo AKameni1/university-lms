@@ -19,6 +19,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import FileUpload from '@/components/file-upload';
 import ColorPicker from '../color-picker';
+import { createBook } from '@/lib/admin/actions/book';
+import { toast } from '@/hooks/use-toast';
 
 interface AuthFormPropsType extends Partial<Book> {
   type?: 'create' | 'update';
@@ -47,8 +49,22 @@ export default function BookForm({
   });
 
   const onSubmit = async (values: z.infer<typeof bookSchema>) => {
-    console.log(values);
+    const result = await createBook(values);
 
+    if (result.success) {
+      toast({
+        title: 'Success',
+        description: 'Book has been created successfully.',
+      })
+
+      router.push(`/admin/books/${result.data.id}`);
+    } else {
+      toast({
+        title: 'Error',
+        description: `An error occurred while creating the book.\n${result?.error}`,
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
