@@ -27,7 +27,9 @@ interface AuthFormPropsType extends Partial<Book> {
 }
 
 export default function BookForm({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   type,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ...book
 }: Readonly<AuthFormPropsType>) {
   const router = useRouter();
