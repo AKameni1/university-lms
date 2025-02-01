@@ -64,6 +64,7 @@ export const signUp = async (params: AuthCredentials) => {
     .select()
     .from(users)
     .where(eq(users.email, email))
+    .limit(1)
     .then((result) => result[0]);
 
   if (existingUser) {

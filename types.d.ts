@@ -12,6 +12,7 @@ type Book = {
   videoUrl: string;
   summary: string;
   createdAt: Date | null;
+  isLoanedBook?: boolean;
 };
 
 type AuthCredentials = {
@@ -33,4 +34,9 @@ type BookParams = {
   totalCopies: number;
   videoUrl: string;
   summary: string;
+};
+
+type BorrowBookParams = {
+  bookId: string;
+  userId: string;
 };

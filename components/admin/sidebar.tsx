@@ -16,7 +16,7 @@ export default function Sidebar({ session }: Readonly<{ session: Session }>) {
     <div className='admin-sidebar'>
       <div className="">
         <div className="logo">
-          <Image src="/icons/admin/logo.svg" alt="Logo" width={37} height={37} className=' size-auto' />
+          <Image src="/icons/admin/logo.svg" alt="BookWise-Logo" width={37} height={37} className='size-auto' />
           <h1>BookWise</h1>
         </div>
 
@@ -33,7 +33,7 @@ export default function Sidebar({ session }: Readonly<{ session: Session }>) {
                 <Link href={link.route} key={link.route}>
                   <div className={cn('link', isSelected && 'bg-primary-admin shadow-sm')}>
                     <div className="relative size-5">
-                      <Image src={link.img} alt='icon' fill className={`${isSelected ? ' brightness-0 invert' : ''} object-contain`} />
+                      <Image src={link.img} alt={`${link.text}-icon`} fill className={`${isSelected ? ' brightness-0 invert' : ''} object-contain`} />
                     </div>
                     <p className={cn(isSelected ? 'text-white' : 'text-dark')}>{link.text}</p>
                   </div>

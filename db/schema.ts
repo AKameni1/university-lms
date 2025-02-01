@@ -7,6 +7,7 @@ import {
   pgEnum,
   date,
   timestamp,
+  real,
 } from 'drizzle-orm/pg-core';
 
 export const STATUS = pgEnum('status', ['PENDING', 'APPROVED', 'REJECTED']);
@@ -32,7 +33,7 @@ export const books = pgTable('books', {
   title: varchar('title', { length: 255 }).notNull(),
   author: varchar('author', { length: 255 }).notNull(),
   genre: text('genre').notNull(),
-  rating: integer('rating').notNull(),
+  rating: real('rating').notNull(),
   totalCopies: integer('total_copies').notNull().default(1),
   availableCopies: integer('available_copies').notNull().default(0),
   description: text('description').notNull(),
@@ -42,4 +43,21 @@ export const books = pgTable('books', {
   summary: varchar('summary').notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
+});
+
+export const borrowRecords = pgTable('borrow_records', {
+  id: uuid('id').notNull().primaryKey().defaultRandom().unique(),
+  userId: uuid('user_id')
+    .references(() => users.id)
+    .notNull(),
+  bookId: uuid('book_id')
+    .references(() => books.id)
+    .notNull(),
+  borrowDate: timestamp('borrow_date', { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  dueDate: date('due_date').notNull(),
+  returnDate: date('return_date'),
+  status: BORROW_STATUS('status').default('BORROWED').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });

@@ -143,6 +143,7 @@ export default function BookForm({
               </FormLabel>
               <FormControl>
                 <Input
+                  step="0.1"
                   type="number"
                   min={1}
                   max={5}

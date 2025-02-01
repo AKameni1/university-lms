@@ -19,6 +19,7 @@ export default async function Layout({
           <div className="flex flex-row gap-3">
             <Image
               src={'/icons/logo.svg'}
+              priority
               width={37}
               height={37}
               alt="Logo"

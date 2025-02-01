@@ -14,8 +14,9 @@ export default function Header({ session }: Readonly<{ session: Session }>) {
 
   return (
     <header className="my-10 flex justify-between gap-5">
-      <Link href="/">
-        <Image src="/icons/logo.svg" alt="logo" width={40} height={40} />
+      <Link href="/" className='flex items-center gap-2'>
+        <Image src="/icons/logo.svg" className='size-auto' alt="bookWise-logo" width={40} height={40} />
+        <p className='text-2xl font-semibold text-white max-md:hidden'>BookWise</p>
       </Link>
 
       <ul className="flex flex-row items-center gap-8">

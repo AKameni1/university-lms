@@ -9,7 +9,14 @@ export default function ColorPicker({ value, onPickerChange }: Readonly<ColorPic
 
   return (
     <div className="relative">
-      <HexColorInput prefixed color={value} onChange={onPickerChange} className="hex-input" />
+      <div className="flex flex-row items-center">
+        <p>#</p>
+        <HexColorInput
+          color={value}
+          onChange={onPickerChange}
+          className="hex-input"
+        />
+      </div>
       <HexColorPicker color={value} onChange={onPickerChange} />
     </div>
   )

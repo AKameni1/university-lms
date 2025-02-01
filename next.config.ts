@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
         hostname: 'ik.imagekit.io',
         port: '',
       },
+      {
+        protocol: 'http',
+        hostname: 'books.google.com',
+      },
     ],
   },
 };

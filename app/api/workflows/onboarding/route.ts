@@ -21,6 +21,7 @@ const getUserState = async (email: string): Promise<UserState> => {
     .select()
     .from(users)
     .where(eq(users.email, email))
+    .limit(1)
     .then((res) => res[0]);
 
   if (!user) {

@@ -1,5 +1,6 @@
 import BookForm from '@/components/admin/forms/book-form'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,7 +9,8 @@ export default function Page() {
     <>
       <Button asChild className='back-btn'>
         <Link href='/admin/books'>
-          Go Back
+          <Image src='/icons/admin/arrow-left.svg' className='size-auto' alt='return at all books' width={16} height={16} />
+          <span className='text-[#3A354E] font-medium'>Go back</span>
         </Link>
       </Button>
 
